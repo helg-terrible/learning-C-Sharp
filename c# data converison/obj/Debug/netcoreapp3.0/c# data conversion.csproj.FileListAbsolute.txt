@@ -1,0 +1,11 @@
+C:\_git\_c# learning\c# data converison\obj\Debug\netcoreapp3.0\c# data conversion.csprojAssemblyReference.cache
+C:\_git\_c# learning\c# data converison\obj\Debug\netcoreapp3.0\c# data conversion.AssemblyInfoInputs.cache
+C:\_git\_c# learning\c# data converison\obj\Debug\netcoreapp3.0\c# data conversion.AssemblyInfo.cs
+C:\_git\_c# learning\c# data converison\bin\Debug\netcoreapp3.0\c# data conversion.exe
+C:\_git\_c# learning\c# data converison\bin\Debug\netcoreapp3.0\c# data conversion.deps.json
+C:\_git\_c# learning\c# data converison\bin\Debug\netcoreapp3.0\c# data conversion.runtimeconfig.json
+C:\_git\_c# learning\c# data converison\bin\Debug\netcoreapp3.0\c# data conversion.runtimeconfig.dev.json
+C:\_git\_c# learning\c# data converison\bin\Debug\netcoreapp3.0\c# data conversion.dll
+C:\_git\_c# learning\c# data converison\bin\Debug\netcoreapp3.0\c# data conversion.pdb
+C:\_git\_c# learning\c# data converison\obj\Debug\netcoreapp3.0\c# data conversion.dll
+C:\_git\_c# learning\c# data converison\obj\Debug\netcoreapp3.0\c# data conversion.pdb
