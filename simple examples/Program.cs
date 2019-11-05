@@ -14,6 +14,10 @@ namespace data_types
 
             Console.WriteLine(apple);
             
+            // modulo
+            Console.WriteLine("Modulo: {0}", (18 % 3));
+
+            
         }
     }
 }

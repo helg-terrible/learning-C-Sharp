@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\_git\\_c# learning\\data types\\data types.csproj",
+      "projectUniqueName": "C:\\_git\\_c# learning\\simple examples\\data types.csproj",
       "projectName": "data types",
-      "projectPath": "C:\\_git\\_c# learning\\data types\\data types.csproj",
+      "projectPath": "C:\\_git\\_c# learning\\simple examples\\data types.csproj",
       "packagesPath": "C:\\Users\\slavu\\.nuget\\packages\\",
-      "outputPath": "C:\\_git\\_c# learning\\data types\\obj\\",
+      "outputPath": "C:\\_git\\_c# learning\\simple examples\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\slavu\\AppData\\Roaming\\NuGet\\NuGet.Config"
