@@ -40,6 +40,10 @@ int charPosition2 = plantName2.IndexOf("u"); // returns 15
 char u = plantName[charPosition2]; // returns u
 
 // действия над строками
+// ToLower - возвращает копию строки в нижнем регистре
+string shouting = "I'm not shouting, you're shouting".ToUpper();
+Console.WriteLine(shouting); // prints I'M NOT SHOUTING, YOU'RE SHOUTING.
+
 
 
 
