@@ -1,0 +1,11 @@
+C:\_git\_c# learning\education pojects\people age in dog year\bin\Debug\netcoreapp3.0\people age in dog year.exe
+C:\_git\_c# learning\education pojects\people age in dog year\bin\Debug\netcoreapp3.0\people age in dog year.deps.json
+C:\_git\_c# learning\education pojects\people age in dog year\bin\Debug\netcoreapp3.0\people age in dog year.runtimeconfig.json
+C:\_git\_c# learning\education pojects\people age in dog year\bin\Debug\netcoreapp3.0\people age in dog year.runtimeconfig.dev.json
+C:\_git\_c# learning\education pojects\people age in dog year\bin\Debug\netcoreapp3.0\people age in dog year.dll
+C:\_git\_c# learning\education pojects\people age in dog year\bin\Debug\netcoreapp3.0\people age in dog year.pdb
+C:\_git\_c# learning\education pojects\people age in dog year\obj\Debug\netcoreapp3.0\people age in dog year.csprojAssemblyReference.cache
+C:\_git\_c# learning\education pojects\people age in dog year\obj\Debug\netcoreapp3.0\people age in dog year.AssemblyInfoInputs.cache
+C:\_git\_c# learning\education pojects\people age in dog year\obj\Debug\netcoreapp3.0\people age in dog year.AssemblyInfo.cs
+C:\_git\_c# learning\education pojects\people age in dog year\obj\Debug\netcoreapp3.0\people age in dog year.dll
+C:\_git\_c# learning\education pojects\people age in dog year\obj\Debug\netcoreapp3.0\people age in dog year.pdb
