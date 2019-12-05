@@ -4,3 +4,5 @@ bool variableName = true; // определение булевой переме�
 bool answer = 3 < 75; 
 Console.WriteLine(answer); // prints True
 
+
+
