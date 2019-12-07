@@ -8,12 +8,17 @@ string yourFaveMusician = "David Bowie";
 string myFaveMusician = "Solange";
 Console.WriteLine("Your favorite musician is " + yourFaveMusician + " and mine is " + myFaveMusician + ".");
 
-// интерполяция строк
+
 string yourFaveMusician = "David Bowie";
 string myFaveMusician = "Solange";
 
-Console.WriteLine($"Your favorite musician is {yourFaveMusician} and mine is {myFaveMusician}.")
-Console.WriteLine("Modulo: {0}", (18 % 3)); // позиционное добавление значений
+// форматирование вывода
+Console.WriteLine($"Your favorite musician is {yourFaveMusician} and mine is {myFaveMusician}."); // интерполяция строк
+Console.WriteLine("Modulo: {0} {1}", (18 % 3), 5); // позиционное добавление значений
+
+Console.WriteLine ("{1}, {0}, {2}", 10, 20, 30); // Выводит: 20, 10, 30
+Console.WriteLine ("{0}, Number {0}, Number {0}", 9);
+
 
 // built-in methods
 // длинна строки
