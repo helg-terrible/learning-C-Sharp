@@ -1,0 +1,6 @@
+C:\_git\_c# learning\education pojects\BasicDataTypes\BasicDataTypes\bin\Debug\BasicDataTypes.exe.config
+C:\_git\_c# learning\education pojects\BasicDataTypes\BasicDataTypes\bin\Debug\BasicDataTypes.exe
+C:\_git\_c# learning\education pojects\BasicDataTypes\BasicDataTypes\bin\Debug\BasicDataTypes.pdb
+C:\_git\_c# learning\education pojects\BasicDataTypes\BasicDataTypes\obj\Debug\BasicDataTypes.csprojAssemblyReference.cache
+C:\_git\_c# learning\education pojects\BasicDataTypes\BasicDataTypes\obj\Debug\BasicDataTypes.exe
+C:\_git\_c# learning\education pojects\BasicDataTypes\BasicDataTypes\obj\Debug\BasicDataTypes.pdb
