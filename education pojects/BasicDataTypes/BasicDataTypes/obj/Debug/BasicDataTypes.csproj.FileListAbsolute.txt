@@ -4,3 +4,9 @@ C:\_git\_c# learning\education pojects\BasicDataTypes\BasicDataTypes\bin\Debug\B
 C:\_git\_c# learning\education pojects\BasicDataTypes\BasicDataTypes\obj\Debug\BasicDataTypes.csprojAssemblyReference.cache
 C:\_git\_c# learning\education pojects\BasicDataTypes\BasicDataTypes\obj\Debug\BasicDataTypes.exe
 C:\_git\_c# learning\education pojects\BasicDataTypes\BasicDataTypes\obj\Debug\BasicDataTypes.pdb
+E:\_git_hub_HelgT\C-Sharp\education pojects\BasicDataTypes\BasicDataTypes\bin\Debug\BasicDataTypes.exe.config
+E:\_git_hub_HelgT\C-Sharp\education pojects\BasicDataTypes\BasicDataTypes\bin\Debug\BasicDataTypes.exe
+E:\_git_hub_HelgT\C-Sharp\education pojects\BasicDataTypes\BasicDataTypes\bin\Debug\BasicDataTypes.pdb
+E:\_git_hub_HelgT\C-Sharp\education pojects\BasicDataTypes\BasicDataTypes\obj\Debug\BasicDataTypes.csprojAssemblyReference.cache
+E:\_git_hub_HelgT\C-Sharp\education pojects\BasicDataTypes\BasicDataTypes\obj\Debug\BasicDataTypes.exe
+E:\_git_hub_HelgT\C-Sharp\education pojects\BasicDataTypes\BasicDataTypes\obj\Debug\BasicDataTypes.pdb

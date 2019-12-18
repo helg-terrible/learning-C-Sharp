@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Numerics; // для типа BigInteger
+
 
 namespace BasicDataTypes
 {
@@ -15,8 +17,12 @@ namespace BasicDataTypes
             ObjectFunctionality();
             DataTypeFunctionality();
             CharFunctionality();
+<<<<<<< HEAD
             ParseFromString();
             ParseFromStringsWithTryParse();
+=======
+            UseBigInteger();
+>>>>>>> origin/master
 
             Console.ReadLine();
         }
@@ -89,6 +95,7 @@ namespace BasicDataTypes
             Console.WriteLine();
         }
 
+<<<<<<< HEAD
         static void ParseFromString()
         {
             Console.WriteLine("=> Data type parsing: "); 
@@ -124,6 +131,23 @@ namespace BasicDataTypes
             Console.WriteLine();
         }
       
+=======
+        static void UseBigInteger()
+        {
+            // работа с типом BigInteger
+            Console.WriteLine("=> Use BigInteger: ");
+            BigInteger biggy = BigInteger.Parse("9999999999999999999999999999999999999999999999");
+            Console.WriteLine("Value of biggy is {0}", biggy);
+            // значение biggy
+            Console.WriteLine("Is biggy an even value?: {0}", biggy.IsEven);
+            // biggy - четное?
+            Console.WriteLine("Is biggy a power of two?: {0}", biggy.IsPowerOfTwo);
+            // biggy - степень 2?
+            BigInteger reallyBig = BigInteger.Multiply(biggy, BigInteger.Parse("8888888888888888888888888888888888888888888"));
+            Console.WriteLine("Value of reallyBig is {0}", reallyBig);
+            // значение reallyBig
+        }
+>>>>>>> origin/master
     }
 }
 
