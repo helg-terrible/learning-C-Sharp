@@ -1,0 +1,6 @@
+C:\_git\_c# learning\pro-csharp-7\Chapter_3\TypeConversions\TypeConversions\bin\Debug\TypeConversions.exe.config
+C:\_git\_c# learning\pro-csharp-7\Chapter_3\TypeConversions\TypeConversions\bin\Debug\TypeConversions.exe
+C:\_git\_c# learning\pro-csharp-7\Chapter_3\TypeConversions\TypeConversions\bin\Debug\TypeConversions.pdb
+C:\_git\_c# learning\pro-csharp-7\Chapter_3\TypeConversions\TypeConversions\obj\Debug\TypeConversions.csprojAssemblyReference.cache
+C:\_git\_c# learning\pro-csharp-7\Chapter_3\TypeConversions\TypeConversions\obj\Debug\TypeConversions.exe
+C:\_git\_c# learning\pro-csharp-7\Chapter_3\TypeConversions\TypeConversions\obj\Debug\TypeConversions.pdb

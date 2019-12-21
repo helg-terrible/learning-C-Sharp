@@ -1,0 +1,6 @@
+C:\_git\_c# learning\education pojects\FunWithStrings\FunWithStrings\bin\Debug\FunWithStrings.exe.config
+C:\_git\_c# learning\education pojects\FunWithStrings\FunWithStrings\bin\Debug\FunWithStrings.exe
+C:\_git\_c# learning\education pojects\FunWithStrings\FunWithStrings\bin\Debug\FunWithStrings.pdb
+C:\_git\_c# learning\education pojects\FunWithStrings\FunWithStrings\obj\Debug\FunWithStrings.csprojAssemblyReference.cache
+C:\_git\_c# learning\education pojects\FunWithStrings\FunWithStrings\obj\Debug\FunWithStrings.exe
+C:\_git\_c# learning\education pojects\FunWithStrings\FunWithStrings\obj\Debug\FunWithStrings.pdb
