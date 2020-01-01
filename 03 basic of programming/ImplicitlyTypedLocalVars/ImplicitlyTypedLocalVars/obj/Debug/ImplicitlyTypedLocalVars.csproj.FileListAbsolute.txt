@@ -1,0 +1,6 @@
+C:\_git\_c# learning\03\ImplicitlyTypedLocalVars\ImplicitlyTypedLocalVars\bin\Debug\ImplicitlyTypedLocalVars.exe.config
+C:\_git\_c# learning\03\ImplicitlyTypedLocalVars\ImplicitlyTypedLocalVars\bin\Debug\ImplicitlyTypedLocalVars.exe
+C:\_git\_c# learning\03\ImplicitlyTypedLocalVars\ImplicitlyTypedLocalVars\bin\Debug\ImplicitlyTypedLocalVars.pdb
+C:\_git\_c# learning\03\ImplicitlyTypedLocalVars\ImplicitlyTypedLocalVars\obj\Debug\ImplicitlyTypedLocalVars.csprojAssemblyReference.cache
+C:\_git\_c# learning\03\ImplicitlyTypedLocalVars\ImplicitlyTypedLocalVars\obj\Debug\ImplicitlyTypedLocalVars.exe
+C:\_git\_c# learning\03\ImplicitlyTypedLocalVars\ImplicitlyTypedLocalVars\obj\Debug\ImplicitlyTypedLocalVars.pdb
