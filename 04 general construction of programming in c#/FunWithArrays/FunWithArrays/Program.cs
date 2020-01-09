@@ -15,11 +15,12 @@ namespace FunWithArrays
             //ArrayInitialization();
             //DeclareImplictArrays();
             //ArrayOfObjects();
-            RectMultidimensionalArray();
-            JaggedMultidimensionalArray();
+            //RectMultidimensionalArray();
+            //JaggedMultidimensionalArray();
+            //PassAndReciveArrays();
+            SystemArrayFunctionality();
 
             Console.ReadLine();
-
         }
 
         static void SimpleArrays()
@@ -119,6 +120,56 @@ namespace FunWithArrays
                     Console.Write(myJagArray[i][j] + " ");
                 Console.WriteLine();
             }
+        }
+        // выводит массив в консоль
+        static void PrintArray( int[] myInts)
+        {
+            for (int i = 0; i < myInts.Length; i++)
+                Console.WriteLine($"Item {i} is {myInts[i]}");
+        }
+        
+        // возвращает строковый массив
+        static string[] GetStringArray()
+        {
+            string[] theStrings = { "Hello", "from", "GetStringArray" };
+            return theStrings;
+        }
+        // 
+        static void PassAndReciveArrays()
+        {
+            Console.WriteLine("Arrays ass params and returns values");
+            // передаем массив в качестве параметра
+            int[] ages = { 20, 32, 23, 1 };
+            PrintArray(ages);
+            // получить массив как возвращаемое значение
+            string[] strs = GetStringArray();
+            foreach (string s in strs)
+                Console.WriteLine(s);
+            Console.WriteLine();
+        }
+        //
+        static void PrintStringArray(string[] myInts)
+        {
+            for (int i = 0; i < myInts.Length; i++)
+                Console.WriteLine(myInts[i] + " ");
+        }
+        // функциональность базового класса Array
+        static void SystemArrayFunctionality()
+        {
+            Console.WriteLine("Working with System.Array =>");
+            string[] gothicBands = { "Tinews on Tail", "Bauhaus", "sisters of Mercy"};
+
+            Console.WriteLine("Here is the array");
+            for (int i = 0; i < gothicBands.Length; i++ )
+                Console.WriteLine(gothicBands[i] + " ");
+
+            // обратим порядок следования
+            Array.Reverse(gothicBands);
+            PrintStringArray(gothicBands);
+
+            // удалим все элементы кросе 
+            Array.Clear(gothicBands, 1, 2);
+            PrintStringArray(gothicBands);
         }
     }
 }
