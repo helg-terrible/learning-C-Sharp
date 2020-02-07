@@ -1,6 +1,0 @@
-C:\Users\slavu\YandexDisk\_library\Unity Skillbox\02\Lesson_06\Homework_Theme_01\bin\Debug\Homework_Theme_01.exe.config
-C:\Users\slavu\YandexDisk\_library\Unity Skillbox\02\Lesson_06\Homework_Theme_01\bin\Debug\Homework_Theme_01.exe
-C:\Users\slavu\YandexDisk\_library\Unity Skillbox\02\Lesson_06\Homework_Theme_01\bin\Debug\Homework_Theme_01.pdb
-C:\Users\slavu\YandexDisk\_library\Unity Skillbox\02\Lesson_06\Homework_Theme_01\obj\Debug\Homework_Theme_01.csprojAssemblyReference.cache
-C:\Users\slavu\YandexDisk\_library\Unity Skillbox\02\Lesson_06\Homework_Theme_01\obj\Debug\Homework_Theme_01.exe
-C:\Users\slavu\YandexDisk\_library\Unity Skillbox\02\Lesson_06\Homework_Theme_01\obj\Debug\Homework_Theme_01.pdb
