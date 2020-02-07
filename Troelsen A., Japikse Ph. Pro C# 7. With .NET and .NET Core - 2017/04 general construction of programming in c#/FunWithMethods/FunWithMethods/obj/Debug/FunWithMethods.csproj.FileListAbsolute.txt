@@ -1,6 +1,0 @@
-C:\_git\_c# learning\04 general construction of programming in c#\FunWithMethods\FunWithMethods\bin\Debug\FunWithMethods.exe.config
-C:\_git\_c# learning\04 general construction of programming in c#\FunWithMethods\FunWithMethods\bin\Debug\FunWithMethods.exe
-C:\_git\_c# learning\04 general construction of programming in c#\FunWithMethods\FunWithMethods\bin\Debug\FunWithMethods.pdb
-C:\_git\_c# learning\04 general construction of programming in c#\FunWithMethods\FunWithMethods\obj\Debug\FunWithMethods.csprojAssemblyReference.cache
-C:\_git\_c# learning\04 general construction of programming in c#\FunWithMethods\FunWithMethods\obj\Debug\FunWithMethods.exe
-C:\_git\_c# learning\04 general construction of programming in c#\FunWithMethods\FunWithMethods\obj\Debug\FunWithMethods.pdb

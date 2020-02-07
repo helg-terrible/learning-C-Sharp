@@ -1,6 +1,0 @@
-C:\_git\_c# learning\education pojects\SimpleCSharpApp\SimpleCSharpApp\bin\Debug\SimpleCSharpApp.exe.config
-C:\_git\_c# learning\education pojects\SimpleCSharpApp\SimpleCSharpApp\bin\Debug\SimpleCSharpApp.exe
-C:\_git\_c# learning\education pojects\SimpleCSharpApp\SimpleCSharpApp\bin\Debug\SimpleCSharpApp.pdb
-C:\_git\_c# learning\education pojects\SimpleCSharpApp\SimpleCSharpApp\obj\Debug\SimpleCSharpApp.csprojAssemblyReference.cache
-C:\_git\_c# learning\education pojects\SimpleCSharpApp\SimpleCSharpApp\obj\Debug\SimpleCSharpApp.exe
-C:\_git\_c# learning\education pojects\SimpleCSharpApp\SimpleCSharpApp\obj\Debug\SimpleCSharpApp.pdb
