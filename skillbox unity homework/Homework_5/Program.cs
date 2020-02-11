@@ -10,6 +10,8 @@ namespace Homework_5
     {
         static void Main(string[] args)
         {
+            // Весь код должен быть откоммментирован
+
             // Задание 1.
             // Воспользовавшись решением задания 3 четвертого модуля
             // 1.1 Создать метод, принимающий число и матрицу, возвращающий матрицу умноженную на число
@@ -23,26 +25,61 @@ namespace Homework_5
 
             // Задание 2.
             // 1. Создать метод, принимающий  текст и возвращающий слово, содержащее минимальное количество букв
-            // 2.1. 
-            /* план на задачу:
-             1. разбить строку на массив строк по заданным разделителям (пробел, точка, запятая)
-             2. выполнить сортировку массива по возврастанию
-             3. вывести самые короткие слова
-            */
-            GetMinMaxlWords();
-
             // 2.* Создать метод, принимающий  текст и возвращающий слово(слова) с максимальным количеством букв 
             // Примечание: слова в тексте могут быть разделены символами (пробелом, точкой, запятой) 
             // Пример: Текст: "A ББ ВВВ ГГГГ ДДДД  ДД ЕЕ ЖЖ ЗЗЗ"
             // 1. Ответ: А
             // 2. ГГГГ, ДДДД
+            /* план на задачу:
+             1. разбить строку на массив строк по заданным разделителям (пробел, точка, запятая)
+             2. выполнить сортировку массива по возврастанию
+             3. дважды обойти итоговый массив - выбрать самые короткие и длинные слова и всавить их в массивы
+            */
+            //GetMinMaxlWords();
 
+            // Задание 3.Создать метод, принимающий текст. 
+            // Результатом работы метода должен быть новый текст, в котором
+            // удалены все кратные рядом стоящие символы, оставив по одному 
+            // Пример: ПППОООГГГООООДДДААА >>> ПОГОДА
+            // Пример: Ххххоооорррооошшшиий деееннннь >>> хороший день
+            //
+            //Task3();
 
+            // Задание 4. Написать метод принимающий некоторое количесво чисел, выяснить
+            // является заданная последовательность элементами арифметической или геометрической прогрессии
+            // 
+            // Примечание
+            //             http://ru.wikipedia.org/wiki/Арифметическая_прогрессия
+            //             http://ru.wikipedia.org/wiki/Геометрическая_прогрессия
+            //
 
-            Console.WriteLine();
-             
+            /* план на задачу:
+            получить массив чисел от пользователя (получить строку, из строки получить массив с числами)
+            проверить на арифметическую про-ю
+            проверить на геометрическую про-ю
+            вывести результы проверки
+            */
+            //Task4();
+
+            // *Задание 5
+            // Вычислить, используя рекурсию, функцию Аккермана:
+            // A(2, 5), A(1, 2)
+            // A(n, m) = m + 1, если n = 0,
+            //         = A(n - 1, 1), если n <> 0, m = 0,
+            //         = A(n - 1, A(n, m - 1)), если n> 0, m > 0.
+            //
+            /* план на задачу:
+             * понять, что такое функция Аккермана
+             * ...?
+             * 
+            */
+            Task5();                       
+
+            Console.ReadKey();
+
         }
 
+        #region Task 1
         // 1.1
         static void MultipleNumberToMatrix()
         {
@@ -193,7 +230,6 @@ namespace Homework_5
             }
             return outputArr;
         }
-        // 
 
         // 1.3
         static int[,] MultipleMatrixToMatrix()
@@ -228,7 +264,7 @@ namespace Homework_5
             // чтобы перемножить матрицы, нужно чтобы количество столбцов первой матрицы были равны количеству строк второй матрицы
             Console.WriteLine("Для умножения матриц, нужно чтобы количество столбцов первой матрицы был равен количеству строк второй матрицы. " +
                 "\nНапример: 2х3 и 3х2");
-            
+
             // получаем значения от пользователя
             while (true)
             {
@@ -283,11 +319,11 @@ namespace Homework_5
             GetMultipleMatrixToMatrix(sourceArr1, sourceArr2, ref outputArr);
 
             return outputArr;
-           
+
         }
         static void GetMultipleMatrixToMatrix(int[,] sourceArr1, int[,] sourceArr2, ref int[,] outputArr)
         {
-            
+
             int temp = default; // переменная для хранения промежуточного значения произведения
 
             // делам обход строк первой матрицы
@@ -308,24 +344,73 @@ namespace Homework_5
             }
         }
         //
+        #endregion
 
+        #region Task 2
         // Задача 2
         static void GetMinMaxlWords()
         {
 
             Console.WriteLine("-> Задача 2. Ищем самое короткое и самые длинные слова");
-            Console.WriteLine("Введите текст: ");
+            Console.Write("Введите текст: ");
             string inpuString = Console.ReadLine();
 
             // получаем массив строк
             string[] words = GetWordsArray(inpuString);
-            
-            // создаем список для хранения коротких слов
-            List<string> minWords = new List<string>();
-            
-            // вернем минимальное слово и добавим в список
-            minWords.Add(FindMinimalWord());
-            
+
+            // выполним сортировку массива
+            SortArrayOfWords(ref words);
+
+            // список для хранения коротких слов            
+            List<string> minWordsLst = new List<string>();
+
+            // самое короткое слово - первый элемент
+            minWordsLst.Add(words[0]);
+
+            // добавим самые длинные слова
+            // список для хранения длинных слов
+            List<string> maxWordsLst = new List<string>();
+
+            bool stopProocess = false; // для управления выходом из цикла
+            for (int i = words.Length - 1; i > 0; i--)
+            {
+                if (stopProocess)
+                    break; // выходим из цикла перебора массива, если мы выбрали все длинные слова
+
+                if (i != 0)
+                {
+                    maxWordsLst.Add(words[i]);
+                    if (words[i] != words[i - 1])
+                        // если следующее слово в массиве не равно текущему, тогда завершаем перебор
+                        stopProocess = true;
+                }
+
+            }
+
+            // вывод результатов - короткие слова
+            Console.Write("Самое короткое слово: ");
+            foreach (string item in minWordsLst)
+                Console.Write(item + " ");
+            Console.WriteLine();
+
+            // длинные слова
+            Console.Write("Самые длинные слова: ");
+            //foreach (string item in maxWordsLst)
+            //    Console.Write(item + " ");
+            //Console.WriteLine();
+
+            string[] outputArr = maxWordsLst.ToArray();
+
+            // выводим значения массива со знаками препинания
+            for (int i = 0; i < outputArr.Length; i++)
+            {
+                Console.Write(outputArr[i]);
+                if (i == outputArr.Length - 1)
+                    Console.Write("");
+                else
+                    Console.Write(", ");
+            }
+
 
             // методы внутри метода
             // метод возвращает массив строк из входной строки
@@ -334,21 +419,203 @@ namespace Homework_5
                 // получаем массив строк
                 // используем стандартные методы для получения массива слов
                 return inputString.Split(new char[] { ' ', ',', '.' }, StringSplitOptions.RemoveEmptyEntries);
-                
-            }
 
-            // внутренний метод сортировки массива (возр, пузырьком)
-            string FindMinimalWord()
-            {
-                string minWord = words[0];
-                for (int i = 0; i < words.Length; i++)
-                {
-                    if (minWord.Length > words[i].Length)
-                        minWord = words[i];
-                }
-
-                return minWord;
             }
         }
+
+        static void SortArrayOfWords(ref string[] sourceArr)
+        {
+            bool needToSort = true;
+
+            do
+            {
+                needToSort = false;
+
+                string temp = default;
+
+                for (int i = 0; i < sourceArr.Length; i++)
+                {
+                    if (i != sourceArr.Length - 1)
+                    {
+                        if (sourceArr[i].Length > sourceArr[i + 1].Length)
+                        {
+                            temp = sourceArr[i + 1];
+                            sourceArr[i + 1] = sourceArr[i];
+                            sourceArr[i] = temp;
+                            needToSort = true;
+                        }
+                    }
+                }
+            } while (needToSort);
+        }
+        #endregion
+
+        #region Task 3
+        // 3
+        static void Task3()
+        {
+            /* план решения
+             * забираем входящую строку от пользователя
+             * внутри цикла проходим по входящей строке - сравниваем текущий элемент с соседями
+             * если не совпадает, добавляемый текущий элемент к выходной строке
+             * 
+            */
+            // 
+            Console.WriteLine("-> удаление повторяющихся символов в строке");
+            Console.Write("Введите строку: ");
+
+            // забираем строку от пользователя и передаем в метод
+            string inputStr = Console.ReadLine();
+            string outputStr = CelanUpTheText(inputStr);
+
+            //
+            Console.Write(" >>> " + outputStr);
+
+
+            // 
+
+
+        }
+
+        static string CelanUpTheText(string inputStr)
+        {
+            string outputStr = default;
+
+            for (int i = 0; i < inputStr.Length; i++)
+            {
+                // если это первый символ, то забираем как есть
+                if (i == 0)
+                {
+                    outputStr += inputStr[i];
+                }
+                else
+                {
+                    // если текущий символ не равен последнему символу в выходной строке, тогда забираем
+                    if (char.ToLower(inputStr[i]) != char.ToLower(outputStr[outputStr.Length - 1])) // todo: сравнить без учета регистра
+                        outputStr += inputStr[i];
+                }
+            }
+
+            return outputStr;
+        }
+        #endregion
+
+        #region Task 4
+        // 4
+        private static void Task4()
+        {
+            // получим строку с числами от пользователя
+
+
+            // тест
+            //int[] sourceArr = { 0, 2, 4, 6, 8, 10, 12 };
+            int[] sourceArr = { 2, 4, 8, 16, 32, 64, 128 };
+            //int[] sourceArr = { 10, 12, 13, 100, 22, 65 };
+
+            Console.WriteLine($"Является ли последовательность арифмет-й прогрессией:  {DiscoverArithmeticSequense(sourceArr)}");
+            Console.WriteLine($"Является ли последовательность геометрической прогрессией:  {DiscoverGeometricSequense(sourceArr)}");
+
+
+        }
+        
+        /// <summary>
+        /// Метод определяет, является ли последовательность чисел в массиве арифметической прогрессией
+        /// </summary>
+        /// <param name="sourceArr"> Массив целых чисел</param>
+        /// <returns>Булево. true - является, false - не является </returns>
+        private static bool DiscoverArithmeticSequense(int[] sourceArr)
+        {
+            bool result = false;
+
+            if (sourceArr.Length < 3)
+                return result;
+
+            // получаем разность арифметической прогрессии
+            int progressionDiff = sourceArr[1] - sourceArr[0];
+
+            for (int i = 1; i < sourceArr.Length; i++)
+            {
+                // если текущий элемент не равен предыдущий + разность прогрессии, тогда выходим из цикла
+                if (sourceArr[i] != sourceArr[i - 1] + progressionDiff) 
+                {
+                    result = false;
+                    break;
+                }
+                result = true;
+
+            }
+
+            return result;
+        }
+
+        /// <summary>
+        /// Метод определяет, является ли последовательность чисел в массиве арифметической прогрессией
+        /// </summary>
+        /// <param name="sourceArr"> Массив целых чисел</param>
+        /// <returns>Булево. true - является, false - не является </returns>
+        private static bool DiscoverGeometricSequense(int[] sourceArr)
+        {
+            bool result = false;
+
+            if (sourceArr.Length < 3)
+                return result;
+
+            // получаем знаменатель геомерической прогрессии
+            int denominatorProgressive = sourceArr[2] / sourceArr[1];
+
+            for (int i = 1; i < sourceArr.Length; i++)
+            {
+                // проверяем текущий элемент
+                if (sourceArr[i] != sourceArr[i - 1] * denominatorProgressive)
+                {
+                    result = false;
+                    break;
+                }
+                result = true;
+
+            }
+
+            return result;
+        }
+
+        #endregion
+
+        #region Task 5
+
+        static void Task5()
+        {
+            // A(2, 5), A(1, 2)
+            // A(n, m) = m + 1, если n = 0,
+            //         = A(n - 1, 1), если n <> 0, m = 0,
+            //         = A(n - 1, A(n, m - 1)), если n> 0, m > 0
+
+            Console.WriteLine("-> функция Аккермана");
+            Console.WriteLine("Введите целые числа m, n");
+            
+            int m = int.Parse(Console.ReadLine());
+            int n = int.Parse(Console.ReadLine());
+
+            Console.WriteLine($"Результат вычисления функции Аккермана: {funcAckerman(m, n)}");
+
+        }
+        /// <summary>
+        /// Метод принимает два целых числа и возвращает результат вычисления функции Аккермана
+        /// </summary>
+        /// <param name="m"></param>
+        /// <param name="n"></param>
+        /// <returns>Результат функции Аккермана, целое число </returns>
+        static int funcAckerman(int m, int n)
+        {
+            if (m == 0)
+                return n + 1;
+            else if (m > 0 && n == 0)
+                return funcAckerman(m - 1, 1);
+            // если m > 0 && n > 0
+            else 
+                return funcAckerman(m - 1, funcAckerman(m, n - 1));
+        }
+
+
+        #endregion
     }
 }
