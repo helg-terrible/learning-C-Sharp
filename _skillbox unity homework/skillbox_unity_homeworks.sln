@@ -3,13 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29728.190
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Homework_5", "Homework_5\Homework_5.csproj", "{282E6D8A-566E-4354-8E10-05B3EC4ED582}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "05_Homework", "Homework_5\05_Homework.csproj", "{282E6D8A-566E-4354-8E10-05B3EC4ED582}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Homework_Theme_01", "Homework_Theme_02\Homework_Theme_01.csproj", "{19A29861-EDF2-44FF-9C63-FEAE0939348E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "02_Homework_Theme_01", "Homework_Theme_02\02_Homework_Theme_01.csproj", "{19A29861-EDF2-44FF-9C63-FEAE0939348E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Homework_Theme_03", "Homework_Theme_03\Homework_Theme_03.csproj", "{003BDC77-7FBF-4762-A477-330A52636A84}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "03_Homework_Theme_03", "Homework_Theme_03\03_Homework_Theme_03.csproj", "{003BDC77-7FBF-4762-A477-330A52636A84}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Homework_Theme_04", "Homework_Theme_04\Homework_Theme_04.csproj", "{F1FA1384-19C3-43B5-8900-E45234AFF3EE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "04_Homework_Theme_04", "Homework_Theme_04\04_Homework_Theme_04.csproj", "{F1FA1384-19C3-43B5-8900-E45234AFF3EE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "06_Homework", "Homework_6\06_Homework.csproj", "{27051667-5942-4C45-99DA-0903314D2249}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{F1FA1384-19C3-43B5-8900-E45234AFF3EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F1FA1384-19C3-43B5-8900-E45234AFF3EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F1FA1384-19C3-43B5-8900-E45234AFF3EE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{27051667-5942-4C45-99DA-0903314D2249}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{27051667-5942-4C45-99DA-0903314D2249}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{27051667-5942-4C45-99DA-0903314D2249}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{27051667-5942-4C45-99DA-0903314D2249}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
