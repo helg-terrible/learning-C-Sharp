@@ -45,15 +45,12 @@ namespace Homework_6
              методы:
             - создание записи
             - удаление (как?) через Pop сруктуры Stack?
-            - редактирование
+            - редактирование записи
             - загрузка данных из файла
             - выгрузка данных в файл
             - добавление данных в текущий ежедневник из выбранного файла
-            - импорт записей по выбранному диапазону дат (импорт из файла?)
-            - упорядочивания записей ежедневника по выбранному полю 
-                (возможно есть стандартные коллекции)
-
-                
+            - импорт записей по выбранному диапазону дат
+            - упорядочивания записей ежедневника по выбранному полю (возможно есть стандартные коллекции)
                 
             */
             #endregion
@@ -66,11 +63,21 @@ namespace Homework_6
             //testEvent.Print();
 
             // тестируем класс ScheduleEvent
-            ScheduleEvents scheduleEvents = new ScheduleEvents();
+            ScheduleEvents scheduleEvents = new ScheduleEvents(@"inputData.csv", @"outputData.csv");
 
-            scheduleEvents.AddItem("2020 02 24 12 30 00", "2020 02 24 13 30 00", "test event", "test event", "Personal");
+            scheduleEvents.AddEvent("2020 02 24 12 30 00", "2020 02 24 13 30 00", "test event", "test event", "Personal");
+            scheduleEvents.AddEvent("2020 02 23 07 00 00", "2020 02 23 07 20 00", "road to work", "moving to work", "Personal");
+            scheduleEvents.AddEvent("2020 02 23 08 10 00", "2020 02 23 08 30 00", "work task 1", "kill them all!", "Job");
 
-            Console.ReadKey();           
+            //Console.ReadKey();
+
+            //scheduleEvents.RemoveEvent(0);
+            //scheduleEvents.EditEvent(0);
+            scheduleEvents.Load();
+
+            scheduleEvents.Unload();
+
+            Console.ReadKey();
 
 
         }
