@@ -14,7 +14,7 @@ namespace Homework_6
         Other
     }
 
-    public class Event
+    public class Event : IComparable<Event>
     {
         // fields
         private DateTime startOfEvent; // start of event
@@ -22,8 +22,6 @@ namespace Homework_6
         private string eventTitile; // title of event
         private string eventDescription; // event desc
         private eventType eventType; // type of Event (personal deal, job, chil or other)
-                                     // private Event parentEvenet; // parent event (link to another event)
-
 
         #region ctors
         /// <summary>
@@ -82,13 +80,54 @@ namespace Homework_6
 
 
         #region Methods
-        public void Print()
+        public void PrintEvent()
         {
             Console.WriteLine($"{this.startOfEvent, 20} {this.endOfEvent, 20} " +
                                 $"{this.eventTitile, 20} {this.eventDescription, 20} {this.eventType, 5}");
         }
 
+        /// <summary>
+        /// выполняет сортировку по дате окончания мероприятия
+        /// </summary>
+        /// <param name="otherEvent"></param>
+        /// <returns></returns>
+        public int CompareTo(Event other)
+        {
+            int compareResult = default;
+
+            compareResult = DateTime.Compare(this.EndOfEvent, other.EndOfEvent);
+
+            return compareResult;
+
+        }
+
+        /// <summary>
+        /// интерфейс IComparer, для реелизации сортировок коллекции объектов
+        /// </summary>
+        public interface IComparer
+        {
+            int Compare(object a, object b);
+        }
+
+               
         #endregion
 
     }
+
+
+    #region copmaparators
+    /// <summary>
+    /// сортировка дате начала
+    /// </summary>
+    class SortEventsByStartDate : IComparer<Event>
+    {
+        public int Compare(Event x, Event y)
+        {
+            return DateTime.Compare(x.StartOfEvent, y.StartOfEvent);   
+        }
+    }
+
+
+
+    #endregion
 }

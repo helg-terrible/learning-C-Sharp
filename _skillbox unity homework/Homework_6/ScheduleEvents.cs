@@ -11,19 +11,20 @@ namespace Homework_6
     {
         #region fields
         // список объектов Event
-        private List<Event> eventList;
+        public List<Event> eventList;
 
         // путь к файлу для загрузки
-        private string inputPath;
+        public string inputPath;
 
         // путь к файлу для выгрузки
-        private string outputPath;
+        public string outputPath;
 
         // заголовки
         private static string[] titles = { "Start of event", "End of event", "Title", "Description", "Event's type" };
 
         #endregion
 
+        #region ctors
         public ScheduleEvents(string inputPath, string outputPath)
         {
             this.inputPath = inputPath;
@@ -31,6 +32,21 @@ namespace Homework_6
 
             this.eventList = new List<Event>();
         }
+
+        #endregion
+
+        #region properties
+        public string InputPath 
+        { 
+            get { return inputPath; } 
+        }
+
+        public string OutputPath 
+        { 
+            get { return outputPath; } 
+        }
+
+        #endregion
 
         #region methods
         /// <summary>
@@ -123,7 +139,7 @@ namespace Homework_6
                 Event curentEvent = eventList[index];
 
                 // вывести поля текущего события перед изменением
-                curentEvent.Print();
+                curentEvent.PrintEvent();
 
                 PrintEditDescription(); // вывод меню режима редактирования
 
@@ -164,7 +180,7 @@ namespace Homework_6
                 }
 
                 // вывести поля текущего события после изменением
-                curentEvent.Print();
+                curentEvent.PrintEvent();
 
             }
             while (cycleControl);
@@ -183,7 +199,7 @@ namespace Homework_6
         }
 
         /// <summary>
-        /// выполняет загрузку событий из файла
+        /// выполняет загрузку данных из файла
         /// </summary>
         /// <param name="inputPathStr">полный путь к файлу для загрузки</param>
         public void Load(string inputPathStr)
@@ -194,6 +210,27 @@ namespace Homework_6
                 {
                     string[] args = sr.ReadLine().Split(',');
                     AddEvent(args[0], args[1], args[2], args[3], args[4]);
+                }
+            }
+        }
+
+        /// <summary>
+        /// выполняет загрузку данных из файла по диапазону дат
+        /// </summary>
+        /// <param name="startData">начальная дата</param>
+        /// <param name="endData">конечная дата</param>
+        /// <param name="inputPathStr">полный путь к файлу</param>
+        public void Load(string inputPathStr, DateTime startData, DateTime endData)
+        {
+            using (StreamReader sr = new StreamReader(inputPathStr))
+            {
+                while (!sr.EndOfStream)
+                {
+                    string[] args = sr.ReadLine().Split(',');
+                    // если даты из файла входят в указанный диапазон, тогда добавим их в список
+                    if (GetDateTime(args[0]) >= startData && GetDateTime(args[1]) <= endData)
+                        AddEvent(args[0], args[1], args[2], args[3], args[4]);
+
                 }
             }
         }
@@ -220,6 +257,7 @@ namespace Homework_6
                 Console.WriteLine(e.Message);
             }
         }
+        
         /// <summary>
         /// преобразует тип Event в строку, с разделителем ','
         /// </summary>
@@ -238,6 +276,22 @@ namespace Homework_6
             return outputStr;
         }
 
+        /// <summary>
+        /// выводит содержимое списка событий в консоль
+        /// </summary>
+        public void PrintEvents()
+        {
+            Console.WriteLine($"{titles[0],25} {titles[1],25} " +
+                                $"{titles[2],20} {titles[3],35} {titles[4],10}");
+
+            foreach(Event currentEvent in eventList)
+            {
+                Console.WriteLine($"{currentEvent.StartOfEvent, 25} {currentEvent.EndOfEvent, 25}" +
+                                    $"{currentEvent.EventTitile, 20} {currentEvent.EventDescription, 35}" +
+                                    $"{currentEvent.EventType, 10}");
+            }
+
+        }
 
 
         #endregion
