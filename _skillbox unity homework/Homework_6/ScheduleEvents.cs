@@ -49,6 +49,86 @@ namespace Homework_6
         #endregion
 
         #region methods
+
+        /// <summary>
+        /// создание записи в ежедневнике
+        /// </summary>
+        public void CreateItem()
+        {
+            Console.WriteLine("Введите дату начала события (yyyy mm dd hh mm ss): ");
+            string strStartOfEvenet = Console.ReadLine();
+
+            Console.WriteLine("Введите дату окончания события (yyyy mm dd hh mm ss): ");
+            string strEndtOfEvenet = Console.ReadLine();
+
+            Console.WriteLine("Введите название события: ");
+            string strEventTitle = Console.ReadLine();
+
+            Console.WriteLine("Введите описание события: ");
+            string strEventDescription = Console.ReadLine();
+
+            Console.WriteLine("Введите тип события: ");
+            string strEventType = Console.ReadLine();
+
+            AddEvent(strStartOfEvenet, strEndtOfEvenet, strEventTitle, strEventDescription, strEventType);
+
+            Console.WriteLine("Запись создана и добавлена");
+
+        }
+
+        /// <summary>
+        /// метод сортирует список
+        /// </summary>
+        public void SortSchedule()
+        {
+            bool cycleControl = true;
+            while (cycleControl)
+            {
+                Console.WriteLine("1 - сортировка по дате окончания \n" +
+                                "2 - сортировка по дате начала \n" +
+                                "3 - сортировка по названию\n" +
+                                "4 - выйти без сортировки");
+
+                int answer = default;
+                try
+                {
+                    answer = int.Parse(Console.ReadLine());
+                }
+                catch
+                {
+                    Console.WriteLine("Неизвестная команда, попробуйте еще раз");
+                    continue;
+                }
+                
+                switch (answer)
+                {
+                    case 1:
+                        eventList.Sort();
+                        cycleControl = false;
+                        break;
+
+                    case 2:
+                        eventList.Sort(new SortEventsByStartDate());
+                        cycleControl = false;
+                        break;
+
+                    case 3:
+                        eventList.Sort(new SortEventsByTitle());
+                        cycleControl = false;
+                        break;
+
+                    case 4:
+                        cycleControl = false;
+                        break;
+
+                    default:
+                        Console.WriteLine("Неизвестная команда, попробуйте еще раз");
+                        break;
+                }
+
+            }
+        }
+
         /// <summary>
         /// добавляет новый объект типа Event в список
         /// </summary>
@@ -57,7 +137,7 @@ namespace Homework_6
         /// <param name="eventTitle">заголовок события, не более 15 символов</param>
         /// <param name="eventDescription">описание события, не более 300 символов</param>
         /// <param name="eventType">тип события</param>
-        public void AddEvent(string strStartOfEvent, string strEndOfEvent, string strEventTitle, string strEventDescription, string strEventType)
+        private void AddEvent(string strStartOfEvent, string strEndOfEvent, string strEventTitle, string strEventDescription, string strEventType)
         {
             eventList.Add(new Event()
             {
@@ -202,9 +282,9 @@ namespace Homework_6
         /// выполняет загрузку данных из файла
         /// </summary>
         /// <param name="inputPathStr">полный путь к файлу для загрузки</param>
-        public void Load(string inputPathStr)
+        public void Load()
         {
-            using (StreamReader sr = new StreamReader(inputPathStr))
+            using (StreamReader sr = new StreamReader(this.InputPath))
             {
                 while (!sr.EndOfStream)
                 {
@@ -281,14 +361,15 @@ namespace Homework_6
         /// </summary>
         public void PrintEvents()
         {
-            Console.WriteLine($"{titles[0],25} {titles[1],25} " +
-                                $"{titles[2],20} {titles[3],35} {titles[4],10}");
+            Console.WriteLine($"{titles[0],20} {titles[1],20} " +
+                                $"{titles[2],20} {titles[3],20} " +
+                                $"{titles[4],15}");
 
             foreach(Event currentEvent in eventList)
             {
-                Console.WriteLine($"{currentEvent.StartOfEvent, 25} {currentEvent.EndOfEvent, 25}" +
-                                    $"{currentEvent.EventTitile, 20} {currentEvent.EventDescription, 35}" +
-                                    $"{currentEvent.EventType, 10}");
+                Console.WriteLine($"{currentEvent.StartOfEvent,20} {currentEvent.EndOfEvent,20}" +
+                                    $"{currentEvent.EventTitile, 20} {currentEvent.EventDescription, 20}" +
+                                    $"{currentEvent.EventType, 15}");
             }
 
         }

@@ -127,6 +127,17 @@ namespace Homework_6
         }
     }
 
+    /// <summary>
+    /// сортировка по назаванию мероприятия
+    /// </summary>
+    class SortEventsByTitle : IComparer<Event>
+    {
+        public int Compare(Event x, Event y)
+        {
+            return String.Compare(x.EventTitile, y.EventTitile);
+        }
+    }
+
 
 
     #endregion
