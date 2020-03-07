@@ -55,78 +55,64 @@ namespace Homework_6
         /// </summary>
         public void CreateItem()
         {
-            Console.WriteLine("Введите дату начала события (yyyy mm dd hh mm ss): ");
-            string strStartOfEvenet = Console.ReadLine();
 
-            Console.WriteLine("Введите дату окончания события (yyyy mm dd hh mm ss): ");
-            string strEndtOfEvenet = Console.ReadLine();
+            string [] strArrEvent = GetRandomEvent();
 
-            Console.WriteLine("Введите название события: ");
-            string strEventTitle = Console.ReadLine();
+            AddEvent(strArrEvent[0], strArrEvent[1], strArrEvent[2], strArrEvent[3], strArrEvent[4]);
 
-            Console.WriteLine("Введите описание события: ");
-            string strEventDescription = Console.ReadLine();
-
-            Console.WriteLine("Введите тип события: ");
-            string strEventType = Console.ReadLine();
-
-            AddEvent(strStartOfEvenet, strEndtOfEvenet, strEventTitle, strEventDescription, strEventType);
-
-            Console.WriteLine("Запись создана и добавлена");
+            Console.WriteLine("Запись создана и добавлена в ежедневник");
 
         }
 
         /// <summary>
-        /// метод сортирует список
+        /// метод позволяет изменить значения полей события
         /// </summary>
-        public void SortSchedule()
+        /// <param name="index">Индекс элемента</param>
+        public void EditEvent(int index)
         {
-            bool cycleControl = true;
-            while (cycleControl)
-            {
-                Console.WriteLine("1 - сортировка по дате окончания \n" +
-                                "2 - сортировка по дате начала \n" +
-                                "3 - сортировка по названию\n" +
-                                "4 - выйти без сортировки");
+            // имитируем полное изменение события
+            Event curentEvent = eventList[index];
 
-                int answer = default;
-                try
-                {
-                    answer = int.Parse(Console.ReadLine());
-                }
-                catch
-                {
-                    Console.WriteLine("Неизвестная команда, попробуйте еще раз");
-                    continue;
-                }
-                
-                switch (answer)
-                {
-                    case 1:
-                        eventList.Sort();
-                        cycleControl = false;
-                        break;
+            string[] strArrEvent = GetRandomEvent();
 
-                    case 2:
-                        eventList.Sort(new SortEventsByStartDate());
-                        cycleControl = false;
-                        break;
+            curentEvent.StartOfEvent = GetDateTime(strArrEvent[0]);
+            curentEvent.EndOfEvent = GetDateTime(strArrEvent[1]);
 
-                    case 3:
-                        eventList.Sort(new SortEventsByTitle());
-                        cycleControl = false;
-                        break;
+            // изменить название
+            curentEvent.EventTitile = strArrEvent[2];
 
-                    case 4:
-                        cycleControl = false;
-                        break;
+            // изменить описание
+            curentEvent.EventDescription = strArrEvent[3];
 
-                    default:
-                        Console.WriteLine("Неизвестная команда, попробуйте еще раз");
-                        break;
-                }
+            // изменить тип мероприятия
+            curentEvent.EventType = GetEventType(strArrEvent[4]);
 
-            }
+            // вывести поля текущего события после изменением
+            curentEvent.PrintEvent();
+        }
+        
+        /// <summary>
+        /// сортирует ежедневник по дате начала мероприятия
+        /// </summary>
+        public void SortScheduleByStarEvent()
+        {
+            eventList.Sort(new SortEventsByStartDate());
+        }
+
+        /// <summary>
+        /// сортирует ежедневник по дате окончания мероприятия
+        /// </summary>
+        public void SortSchedulebyEndEvent()
+        {
+            eventList.Sort();
+        }
+        
+        /// <summary>
+        /// сортирует ежедневник по названию мероприятий
+        /// </summary>
+        public void SortScheduleByTitle()
+        {
+            eventList.Sort(new SortEventsByTitle());
         }
 
         /// <summary>
@@ -149,54 +135,7 @@ namespace Homework_6
             });
         }
 
-        /// <summary>
-        /// возвращает объект DateTime из строки
-        /// </summary>
-        /// <param name="dateTime">строка с датой в формате yyyy mm dd hh mm ss </param>
-        /// <returns></returns>
-        private DateTime GetDateTime(string strdDateTime)
-        {
-            // получим из строки с датой массив: год, месяц, день, часы, минуты, секунды
-            string[] partsOfDateTime = strdDateTime.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
-
-            try
-            {
-                return new DateTime(int.Parse(partsOfDateTime[0]),
-                                        int.Parse(partsOfDateTime[1]),
-                                        int.Parse(partsOfDateTime[2]),
-                                        int.Parse(partsOfDateTime[3]),
-                                        int.Parse(partsOfDateTime[4]),
-                                        int.Parse(partsOfDateTime[5]));
-            }
-
-            catch { return new DateTime(); }
-
-
-        }
-
-        /// <summary>
-        /// возвращает тип события eventType по входной строке
-        /// </summary>
-        /// <param name="strEventType">Personal, Job, Health, Other</param>
-        /// <returns>возвращает объект типа eventType</returns>
-        private eventType GetEventType(string strEventType)
-        {
-            switch (strEventType)
-            {
-                case "Personal":
-                    return eventType.Personal;
-                    break;
-                case "Job":
-                    return eventType.Job;
-                    break;
-                case "Health":
-                    return eventType.Health;
-                    break;
-                default:
-                    return eventType.Other;
-                    break;
-            }
-        }
+        
 
         /// <summary>
         /// Удаляет элемент по индексу
@@ -206,92 +145,23 @@ namespace Homework_6
         {
             eventList.RemoveAt(index);
         }
-
+               
         /// <summary>
-        /// метод позволяет изменить значения полей события
+        /// выполняет загрузку данных из основного хранилища
         /// </summary>
-        /// <param name="index">Индекс элемента</param>
-        public void EditEvent(int index)
-        {
-            bool cycleControl = default;
-            do
-            {
-                Event curentEvent = eventList[index];
-
-                // вывести поля текущего события перед изменением
-                curentEvent.PrintEvent();
-
-                PrintEditDescription(); // вывод меню режима редактирования
-
-                int answer = int.Parse(Console.ReadLine());
-                switch (answer)
-                {
-                    case 0: // выход из режима редактирования
-                        Console.WriteLine("Exiting from edit mode...");
-                        cycleControl = false;
-                        break;
-
-                    case 1: // изменить даты мероприятия
-                        Console.WriteLine("Enter new start and end datetime (yyyy mm dd hh mm ss): ");
-                        string newStartDateTimeStr = Console.ReadLine();
-                        string newEndDateTimeStr = Console.ReadLine();
-                        curentEvent.StartOfEvent = GetDateTime(newStartDateTimeStr);
-                        curentEvent.EndOfEvent = GetDateTime(newEndDateTimeStr);
-                        break;
-
-                    case 2: // изменить название
-                        Console.WriteLine("Enter new title of event: ");
-                        curentEvent.EventTitile = Console.ReadLine();
-                        break;
-
-                    case 3: // изменить описание
-                        Console.WriteLine("Enter new description of event: ");
-                        curentEvent.EventDescription = Console.ReadLine();
-                        break;
-
-                    case 4: // изменить тип мероприятия
-                        Console.WriteLine("Enter type of event (Personal, Job, Health, Other): ");
-                        curentEvent.EventType = GetEventType(Console.ReadLine());
-                        break;
-
-                    default:
-                        Console.WriteLine("unknow answer");
-                        break;
-                }
-
-                // вывести поля текущего события после изменением
-                curentEvent.PrintEvent();
-
-            }
-            while (cycleControl);
-
-            // внутренний метод - выводи описание режима редактирования
-            void PrintEditDescription()
-            {
-                Console.WriteLine($"Editing mode");
-                Console.WriteLine("0 - exit from edit mode" +
-                                    "\n1 - change event date" +
-                                    "\n2 - change title" +
-                                    "\n3 - change description" +
-                                    "\n4 - change event type");
-            }
-
-        }
-
-        /// <summary>
-        /// выполняет загрузку данных из файла
-        /// </summary>
-        /// <param name="inputPathStr">полный путь к файлу для загрузки</param>
         public void Load()
         {
             using (StreamReader sr = new StreamReader(this.InputPath))
             {
                 while (!sr.EndOfStream)
                 {
+                    // получаем массив строк по разделителю
                     string[] args = sr.ReadLine().Split(',');
                     AddEvent(args[0], args[1], args[2], args[3], args[4]);
                 }
             }
+            Console.WriteLine("Данные загружены");
+
         }
 
         /// <summary>
@@ -371,6 +241,122 @@ namespace Homework_6
                                     $"{currentEvent.EventTitile, 20} {currentEvent.EventDescription, 20}" +
                                     $"{currentEvent.EventType, 15}");
             }
+
+        }
+
+        #endregion
+
+        #region service methods
+
+        /// <summary>
+        /// возвращает объект DateTime из строки
+        /// </summary>
+        /// <param name="dateTime">строка с датой в формате yyyy mm dd hh mm ss </param>
+        /// <returns></returns>{
+        private DateTime GetDateTime(string strdDateTime)
+        {
+            // получим из строки с датой массив: год, месяц, день, часы, минуты, секунды
+            string[] partsOfDateTime = strdDateTime.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
+
+            try
+            {
+                return new DateTime(int.Parse(partsOfDateTime[0]),
+                                        int.Parse(partsOfDateTime[1]),
+                                        int.Parse(partsOfDateTime[2]),
+                                        int.Parse(partsOfDateTime[3]),
+                                        int.Parse(partsOfDateTime[4]),
+                                        int.Parse(partsOfDateTime[5]));
+            }
+
+            catch { return new DateTime(); }
+        }
+
+        private string GetStrStartDate()
+        {
+            Random r = new Random();
+
+            string strDateTime = Convert.ToString(r.Next(1, 2020)) + " " +
+                                    Convert.ToString(r.Next(1, 6)) + " " +
+                                    Convert.ToString(r.Next(1, 28)) + " " + "00 " + "00 " + "00";
+
+            return strDateTime;
+
+        }
+
+        private string GetStrEndtDate()
+        {
+            Random r = new Random();
+
+            string strDateTime = Convert.ToString(r.Next(2020, 3000)) + " " +
+                                    Convert.ToString(r.Next(6, 12)) + " " +
+                                    Convert.ToString(r.Next(1, 28)) + " " + "00 " + "00 " + "00";
+
+            return strDateTime;
+
+        }
+
+        /// <summary>
+        /// возвращает тип события eventType по входной строке
+        /// </summary>
+        /// <param name="strEventType">Personal, Job, Health, Other</param>
+        /// <returns>возвращает объект типа eventType</returns>
+        private eventType GetEventType(string strEventType)
+        {
+            switch (strEventType)
+            {
+                case "Personal":
+                    return eventType.Personal;
+                    break;
+                case "Job":
+                    return eventType.Job;
+                    break;
+                case "Health":
+                    return eventType.Health;
+                    break;
+                default:
+                    return eventType.Other;
+                    break;
+            }
+        }
+
+        /// <summary>
+        /// генерирует случайное событие
+        /// </summary>
+        /// <returns>массив строк с полями для создания события</returns>
+        private string[] GetRandomEvent()
+        {
+
+            // массив для хранения значений полей события
+            string[] strArrEvent = new string[5];
+
+            strArrEvent[0] = (GetStrStartDate()); // дата начала события
+            strArrEvent[1] = (GetStrEndtDate()); // дата окончания события
+
+            Random r = new Random();
+
+            strArrEvent[2] = ("Test event " + Convert.ToString(r.Next(1, 9999))); // название события
+
+            strArrEvent[3] = ("Test event " + Convert.ToString(r.Next(1, 9999))); // описание события
+
+            int intTypeOfEvent = r.Next(1, 4);
+            string strEventType = default;
+
+            switch (intTypeOfEvent)
+            {
+                case 1:
+                    strEventType = "Personal";
+                    break;
+                case 2:
+                    strEventType = "Job"; break;
+                case 3:
+                    strEventType = "Health"; break;
+                default:
+                    strEventType = "Other"; break;
+            }
+
+            strArrEvent[4] = (strEventType); // тип события
+
+            return strArrEvent;
 
         }
 

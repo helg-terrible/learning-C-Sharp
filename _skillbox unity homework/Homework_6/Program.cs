@@ -55,6 +55,13 @@ namespace Homework_6
             */
             #endregion
 
+            #region todo by 07.03.2020
+            /*
+            - загружать и выгружать данные нужно в одно хранилище - вопрос к формату дат при выгрузке
+            - 
+            */
+            #endregion
+
             // главный управляющий цикл
             bool mainControlCycle = true;
 
@@ -88,30 +95,42 @@ namespace Homework_6
                     
                     // редактировать запись
                     case 2:
+                        // в качестве демонстрации передаем индекс последнего элемента
+                        scheduleEvents.EditEvent(scheduleEvents.eventList.Count - 1);
                         break;
 
-                    // удалить запись
+                    // удаляем запись
                     case 3:
+                        // в качестве демонстрации передаем индекс последнего элемента
+                        scheduleEvents.RemoveEvent(scheduleEvents.eventList.Count - 1);
                         break;
 
-                    // загрузить данные из хранилища
+                    // загрузить данные из хранилища из основного хранилища inputData
                     case 4:
                         scheduleEvents.Load();
                         break;
-                    
-                    case 5:
-                        break;
 
+                    // выгрузить данные в хранилище addData (не основное хранилище)
+                    case 5:
+                        scheduleEvents.Unload();
+                        break;
+                    
+                    // загрузить данные в ежедневник из выбранного файла по диапазону дат
                     case 6:
+                        // демонстрация - диапазон дат задан фиксированно
+                        LoadDataByRange(scheduleEvents);
                         break;
                     
-                    // отсортировать ежедневник
+                    // отсортировать ежедневник по дате окончания
                     case 7:
-                        scheduleEvents.SortSchedule();
-                        break;
+                        scheduleEvents.SortSchedulebyEndEvent(); break;
                     
-                    // вывод ежедневника в консоль
+                    // отсортировать ежедневник по названию мероприятия
                     case 8:
+                        scheduleEvents.SortScheduleByTitle(); break;
+                        
+                    // вывод ежедневника в консоль
+                    case 9:
                         scheduleEvents.PrintEvents();
                         break;
 
@@ -120,68 +139,12 @@ namespace Homework_6
                         continue;
 
                 }
-
-
             }
-
-
-            //Event testEvent = new Event(new DateTime(2020, 02, 23, 17, 05, 00), 
-            //                            new DateTime(2020, 02, 23, 19, 00, 00),
-            //                            "go to the cinema");
-
-            //testEvent.EventType = eventType.Personal;
-            //testEvent.Print();
-
-            // тестируем класс ScheduleEvent
-            //ScheduleEvents scheduleEvents = new ScheduleEvents(@"inputData.csv", @"outputData.csv");
-
-            //scheduleEvents.AddEvent("2020 02 24 12 30 00", "2020 02 24 13 30 00", "test event", "test event", "Personal");
-            //scheduleEvents.AddEvent("2020 02 23 07 00 00", "2020 02 23 07 20 00", "road to work", "moving to work", "Personal");
-            //scheduleEvents.AddEvent("2020 02 23 08 10 00", "2020 02 23 08 30 00", "work task 1", "kill them all!", "Job");
-
-            //scheduleEvents.PrintEvents();
-
-            //Console.ReadKey();
-
-            ////scheduleEvents.RemoveEvent(0); // удаление записи по индексу
-
-            ////scheduleEvents.EditEvent(0); // редактирование записи
-
-            //scheduleEvents.Load(scheduleEvents.InputPath); // загрузка данных из файла
-
-            //scheduleEvents.PrintEvents();
-
-            //Console.ReadKey();
-
-            //scheduleEvents.Unload(); // выгрузка в событий в файл
-
-            //// дозагрузка данных из файла по диапазону дат
-            //scheduleEvents.Load(@"addData.csv", new DateTime(2020, 03, 02, 00, 00, 00), new DateTime(2020, 03, 02, 10, 00, 00));
-
-            //scheduleEvents.PrintEvents();
-
-            //Console.ReadKey();
-
-            //// сортировка по дате окончания мероприятия
-            ////scheduleEvents.eventList.Sort();
-
-            ////scheduleEvents.PrintEvents();
-
-            ////Console.ReadKey();
-
-            //// упорядочивание событий ежедневника по дате начала мероприятия
-            //scheduleEvents.eventList.Sort(new SortEventsByStartDate());
-
-            //// to do: добавить сортировку по названию события и типу
-
-            //scheduleEvents.PrintEvents();
-
-            //Console.ReadKey();
-
-
+           
+            Console.ReadKey();
         }
-        
-        // вывод приветственного сообщения
+
+        // метод выводит приветственное сообщение с описанием ожидаемых к вводу команд       
         static void MainGreetingMessage()
         {
             Console.WriteLine();
@@ -193,9 +156,20 @@ namespace Homework_6
                             "4 - загрузить данные из хранилища\n" +
                             "5 - выгрузить данные в хранилище (записи будут замещены)\n" +
                             "6 - загрузить данные в ежедневник из выбранного файла\n" +
-                            "7 - отсортировать ежедневник\n" +
-                            "8 - вывести ежедневник в консоль");
+                            "7 - отсортировать ежедневник по дате окончания\n" +
+                            "8 - отсортировать ежедневник по названию мероприятия\n" +
+                            "9 - вывести ежедневник в консоль");
             
+        }
+
+        /// <summary>
+        /// загружает данные из файла по ссылке по диапазону дат
+        /// </summary>
+        /// <param name="scheduleEvents"></param>
+        static void LoadDataByRange(ScheduleEvents scheduleEvents)
+        {
+            // 
+            scheduleEvents.Load(@"addData.csv", new DateTime(2020, 03, 01, 00, 00, 00), new DateTime(2020, 03, 08, 12, 00, 00));
         }
 
     }
